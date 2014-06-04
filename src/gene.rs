@@ -1,34 +1,40 @@
-mod gene {
+#![crate_id = "gene#0.1"]
+extern crate core;
+	
+pub struct BaseGene {	
+    pub value : f64,
+}
 
-	pub struct BaseGene {	
-	    value : f64,
+trait Gamete {
+	
+}
+
+pub trait Gene {
+	fn get_finess(&self);
+	fn mutate(&self);
+	fn copy(&self);
+}
+
+impl Add<BaseGene, BaseGene> for BaseGene {
+	fn add(&self, rhs: &BaseGene) -> BaseGene {
+		return BaseGene {value : self.value + rhs.value};	
 	}
+}
 
-	trait Gamete {
+impl core::fmt::Show for BaseGene {
+	fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+		core::fmt::secret_show(&self, f)
+	}
+}
+
+impl Gene for BaseGene {
+	fn get_finess(&self) {
 		
 	}
+	fn mutate(&self) {
 
-	pub trait Gene {
-		fn get_finess(&self);
-		fn mutate(&self);
-		fn copy(&self);
 	}
-
-	impl Add<BaseGene, BaseGene> for BaseGene {
-		pub fn add(&self, rhs: &BaseGene) -> BaseGene {
-			return BaseGene {value : self.value + rhs.value};	
-		}
-	}
-
-	impl Gene for BaseGene {
-		pub fn get_finess(&self) {
-			
-		}
-		pub fn mutate(&self) {
-
-		}
-		pub fn copy(&self) {
-			
-		}
+	fn copy(&self) {
+		
 	}
 }

@@ -1,4 +1,5 @@
-mod gene;
+extern crate gene;
+extern crate gene = "gene#0.1";
 
 #[deriving(Show)]
 
